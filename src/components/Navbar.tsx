@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { IoMdSearch } from 'react-icons/io'; // Import search icon
 import { useState, useEffect, useRef } from 'react';
 
@@ -56,7 +57,9 @@ const Navbar = () => {
   return (
     <header className="flex items-center justify-between p-4 bg-gray-800 rounded-2xl">
       {/* Logo */}
+      <Link href="/" passHref>
       <Image src="/kira.png" alt="Kira Logo" width={80} height={80} />
+      </Link>
 
       {/* Search Bar Container */}
       <div className="flex-grow mx-4 flex items-center justify-center relative">
@@ -103,15 +106,17 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Profile Circle with Online Status */}
+{/* Profile Circle with Online Status */}
       <div className="relative w-12 h-12">
-        <Image
-          src="/profile.jpg" // Replace with your profile image path
-          alt="Profile"
-          width={48}
-          height={48}
-          className="rounded-full object-cover w-full h-full"
-        />
+        <Link href="/profile"> {/* Add link here */}
+          <Image
+            src="/profile.jpg" // Replace with your profile image path
+            alt="Profile"
+            width={48}
+            height={48}
+            className="rounded-full object-cover w-full h-full cursor-pointer" // Make it clickable
+          />
+        </Link>
         <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full border-2 border-gray-800 z-10"></span>
       </div>
     </header>
